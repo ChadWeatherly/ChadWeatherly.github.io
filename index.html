@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chad Weatherly — PhD Candidate in CS/AI</title>
+  <meta name="description" content="Chad Weatherly — PhD candidate specializing in anomaly detection and edge AI. Research, projects, and consulting portfolio.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ===== CSS Variables ===== */
+    :root {
+      --bg-primary: #fafafa;
+      --bg-secondary: #ffffff;
+      --bg-card: #ffffff;
+      --text-primary: #1a1a2e;
+      --text-secondary: #4a4a6a;
+      --text-muted: #7a7a9a;
+      --accent: #0d9488;
+      --accent-light: #ccfbf1;
+      --accent-hover: #0f766e;
+      --navbar-bg: #1a1a2e;
+      --navbar-text: #e0e0e0;
+      --border: #e5e7eb;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+      --shadow-lg: 0 8px 30px rgba(0,0,0,0.12);
+      --radius: 10px;
+      --transition: 0.3s ease;
+    }
+
+    [data-theme="dark"] {
+      --bg-primary: #0f0f1a;
+      --bg-secondary: #1a1a2e;
+      --bg-card: #1e1e34;
+      --text-primary: #e8e8f0;
+      --text-secondary: #b0b0c8;
+      --text-muted: #7a7a9a;
+      --accent: #2dd4bf;
+      --accent-light: #0d3d38;
+      --accent-hover: #5eead4;
+      --navbar-bg: #0a0a16;
+      --navbar-text: #c0c0d0;
+      --border: #2a2a44;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.4);
+      --shadow-lg: 0 8px 30px rgba(0,0,0,0.5);
+    }
+
+    /* ===== Reset & Base ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 70px;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.7;
+      transition: background var(--transition), color var(--transition);
+    }
+
+    a { color: var(--accent); text-decoration: none; transition: color var(--transition); }
+    a:hover { color: var(--accent-hover); }
+
+    /* ===== Navbar ===== */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: var(--navbar-bg);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      backdrop-filter: blur(12px);
+    }
+
+    .navbar-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: #fff;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-logo span { color: var(--accent); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--navbar-text);
+      font-size: 0.88rem;
+      font-weight: 500;
+      padding: 6px 14px;
+      border-radius: 6px;
+      transition: all var(--transition);
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #fff;
+      background: rgba(255,255,255,0.08);
+    }
+
+    .theme-toggle {
+      background: rgba(255,255,255,0.08);
+      border: none;
+      color: var(--navbar-text);
+      width: 38px; height: 38px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.15rem;
+      transition: all var(--transition);
+      margin-left: 8px;
+    }
+
+    .theme-toggle:hover { background: rgba(255,255,255,0.15); color: #fff; }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px; height: 2px;
+      background: var(--navbar-text);
+      border-radius: 2px;
+      transition: all var(--transition);
+    }
+
+    /* ===== Sections ===== */
+    .section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 80px 24px;
+    }
+
+    .section-label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 32px;
+      letter-spacing: -0.02em;
+    }
+
+    /* ===== Hero ===== */
+    .hero {
+      min-height: calc(100vh - 64px);
+      display: flex;
+      align-items: center;
+      padding-top: 64px;
+    }
+
+    .hero-content { max-width: 720px; }
+
+    .hero-tag {
+      display: inline-block;
+      background: var(--accent-light);
+      color: var(--accent);
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 .accent { color: var(--accent); }
+
+    .hero-subtitle {
+      font-size: 1.15rem;
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+      line-height: 1.7;
+      max-width: 600px;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .hero-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .hero-meta-item svg {
+      width: 18px; height: 18px;
+      stroke: var(--accent);
+      fill: none;
+      stroke-width: 2;
+    }
+
+    .hero-links {
+      display: flex;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 22px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: all var(--transition);
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-hover);
+      color: #fff;
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text-primary);
+      border: 1.5px solid var(--border);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    /* ===== Cards ===== */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      transition: all var(--transition);
+    }
+
+    .card:hover {
+      box-shadow: var(--shadow-md);
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .card-grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    .card-grid-2 { grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); }
+    .card-grid-3 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+
+    .card-tag {
+      display: inline-block;
+      background: var(--accent-light);
+      color: var(--accent);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 4px;
+      margin-bottom: 12px;
+    }
+
+    .card h3 {
+      font-size: 1.12rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+
+    .card-footer {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .tech-tag {
+      font-size: 0.72rem;
+      font-weight: 500;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: var(--bg-primary);
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+    }
+
+    .card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-top: 14px;
+      color: var(--accent);
+    }
+
+    .card-link svg {
+      width: 16px; height: 16px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+    }
+
+    /* ===== Publication ===== */
+    .pub-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      border-left: 3px solid var(--accent);
+    }
+
+    .pub-card h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+
+    .pub-meta {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .pub-doi {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      color: var(--accent);
+    }
+
+    /* ===== Skills ===== */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .skill-group h3 {
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .skill-item {
+      font-size: 0.82rem;
+      font-weight: 500;
+      padding: 5px 12px;
+      border-radius: 6px;
+      background: var(--bg-card);
+      color: var(--text-secondary);
+      border: 1px solid var(--border);
+      transition: all var(--transition);
+    }
+
+    .skill-item:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* ===== Contact ===== */
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 22px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      transition: all var(--transition);
+    }
+
+    .contact-item:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .contact-item svg {
+      width: 20px; height: 20px;
+      stroke: var(--accent);
+      fill: none;
+      stroke-width: 2;
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+    }
+
+    /* ===== Divider ===== */
+    .section + .section { border-top: 1px solid var(--border); }
+
+    /* ===== Mobile ===== */
+    @media (max-width: 768px) {
+      .hamburger { display: flex; }
+
+      .nav-links {
+        position: fixed;
+        top: 64px; left: 0; right: 0;
+        background: var(--navbar-bg);
+        flex-direction: column;
+        padding: 16px 24px;
+        gap: 4px;
+        transform: translateY(-120%);
+        transition: transform var(--transition);
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+      }
+
+      .nav-links.open { transform: translateY(0); }
+
+      .nav-links a {
+        display: block;
+        padding: 10px 14px;
+        width: 100%;
+      }
+
+      .section { padding: 60px 20px; }
+
+      .hero { min-height: auto; padding-top: 100px; padding-bottom: 60px; }
+
+      .hero h1 { font-size: 2rem; }
+
+      .card-grid-2, .card-grid-3 {
+        grid-template-columns: 1fr;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .hero-links { flex-direction: column; }
+    }
+
+    @media (max-width: 480px) {
+      .skills-grid { grid-template-columns: 1fr; }
+      .contact-links { flex-direction: column; }
+    }
+
+    /* ===== Animations ===== */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <a href="#hero" class="nav-logo">chad<span>.</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div style="display:flex;align-items:center;gap:4px;">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+          <span id="themeIcon">&#9790;</span>
+        </button>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== HERO / ABOUT ===== -->
+  <section class="section hero" id="hero">
+    <div class="hero-content fade-in">
+      <div class="hero-tag">PhD Candidate &middot; CS / AI</div>
+      <h1>Chad <span class="accent">Weatherly</span></h1>
+      <p class="hero-subtitle">
+        Specializing in anomaly detection and edge AI. Focused on making industrial
+        anomaly detection work in realistic, resource-constrained, continually-changing environments.
+      </p>
+      <p class="hero-subtitle" style="font-size:0.95rem;">
+        PhD student at the University of Houston in the
+        <strong>Pattern Analysis Lab</strong> under Dr. Ioannis Kakadiaris.
+        Background in mathematics and data science, with primary languages Python and Rust.
+      </p>
+      <div class="hero-meta" id="about">
+        <div class="hero-meta-item">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          University of Houston
+        </div>
+        <div class="hero-meta-item">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          Pattern Analysis Lab
+        </div>
+        <div class="hero-meta-item">
+          <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          Python &amp; Rust
+        </div>
+      </div>
+      <div class="hero-links">
+        <a href="#research" class="btn btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          View Research
+        </a>
+        <a href="#contact" class="btn btn-outline">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== RESEARCH ===== -->
+  <section class="section" id="research">
+    <div class="fade-in">
+      <div class="section-label">Research</div>
+      <h2 class="section-title">Active Projects</h2>
+      <div class="card-grid card-grid-2">
+
+        <div class="card">
+          <div class="card-tag">Anomaly Detection</div>
+          <h3>LeJEPA-AD</h3>
+          <p>
+            Architecture-agnostic anomaly detection using bidirectional latent-space predictors.
+            A forward predictor maps 8 context patches to 1 center patch for structural anomalies,
+            while a backward predictor maps 1 center to 8 context patches for logical and positional anomalies.
+            Uses SIGReg regularization for in-domain pretraining.
+          </p>
+          <p style="margin-top:10px;">
+            Currently testing across 14 model architectures under 20M parameters, including
+            FastViT, RepViT, TinyViT, ViT, and ConvNeXt V2.
+          </p>
+          <a href="https://github.com/ChadWeatherly/LeJEPA-AD" class="card-link" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            GitHub
+          </a>
+        </div>
+
+        <div class="card">
+          <div class="card-tag">Benchmarking</div>
+          <h3>Continual Anomaly Detection Benchmarking</h3>
+          <p>
+            Exposed reproducibility problems in the continual anomaly detection (CLAD) field.
+            Demonstrated performance collapses under realistic distribution drift, with AUROC
+            dropping from 92.4% to 52.6%. Developed DINOCore, achieving 0.969 AUROC on MVTec-AD.
+          </p>
+          <a href="https://github.com/ChadWeatherly/Continual_Anomaly_Detection" class="card-link" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            GitHub
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PUBLICATIONS ===== -->
+  <section class="section" id="publications">
+    <div class="fade-in">
+      <div class="section-label">Publications</div>
+      <h2 class="section-title">Published Work</h2>
+      <div class="pub-card">
+        <h3>The MET Project: Distinguishing Multisystem Inflammatory Syndrome in Children from Typhus Using Artificial Intelligence</h3>
+        <p class="pub-meta">
+          Chun A, Bautista A, <strong>Weatherly C</strong>, Osuna I, Nasto K, Munoz FM, Schutze G,
+          Devaraj S, Muscal E, Sexson Tejtel K, Vogel T, Kakadiaris I.
+        </p>
+        <p class="pub-meta">
+          <em>Open Forum Infectious Diseases</em>, 2022;9(Suppl 2):ofac492.916.
+        </p>
+        <a href="https://doi.org/10.1093/ofid/ofac492.916" class="pub-doi" target="_blank" rel="noopener">
+          DOI: 10.1093/ofid/ofac492.916
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROJECTS ===== -->
+  <section class="section" id="projects">
+    <div class="fade-in">
+      <div class="section-label">Portfolio</div>
+      <h2 class="section-title">Consulting &amp; Industry Work</h2>
+      <div class="card-grid card-grid-3">
+
+        <div class="card">
+          <div class="card-tag">Industrial Inspection</div>
+          <h3>X9 Inc</h3>
+          <p>
+            End-to-end industrial X-ray inspection system with development fees, perpetual licensing,
+            and annual support model. Built a central Flask server with WhatsApp Cloud API integration,
+            RFID operator tracking, and FulcrumPro ERP sync.
+          </p>
+          <p style="margin-top:8px;font-size:0.85rem;color:var(--text-muted);">
+            Hardware: Intel Xeon server, Raspberry Pi stations, JMX-P6030 X-Ray machine.
+          </p>
+          <div class="card-footer">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Flask</span>
+            <span class="tech-tag">PyTorch</span>
+            <span class="tech-tag">OpenCV</span>
+            <span class="tech-tag">C# .NET</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-tag">Manufacturing QC</div>
+          <h3>Wellmatics</h3>
+          <p>
+            Manufacturing QC suite featuring an 8-camera QR detection system using Luxonis Oak-1 Lite cameras,
+            a Python backend with Rust GUI, and ZeroMQ communication. YOLOv8-based X-ray deep learning system
+            for detonator QC with a 3-model cascade pipeline.
+          </p>
+          <div class="card-footer">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Rust</span>
+            <span class="tech-tag">PyTorch</span>
+            <span class="tech-tag">YOLO</span>
+            <span class="tech-tag">DepthAI</span>
+            <span class="tech-tag">ZeroMQ</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-tag">Edge AI Product</div>
+          <h3>OAKCameraQC</h3>
+          <p>
+            Deployable edge AI quality-control camera product with Jetson Orin Nano and Raspberry Pi 5 variants.
+            SSD neural networks for production deployment. Currently evaluating PatchCore vs. EfficientAD
+            approaches for anomaly detection.
+          </p>
+          <div class="card-footer">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">PyTorch</span>
+            <span class="tech-tag">Jetson</span>
+            <span class="tech-tag">Raspberry Pi</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SKILLS ===== -->
+  <section class="section" id="skills">
+    <div class="fade-in">
+      <div class="section-label">Skills</div>
+      <h2 class="section-title">Technical Toolkit</h2>
+      <div class="skills-grid">
+
+        <div class="skill-group">
+          <h3>Languages</h3>
+          <div class="skill-list">
+            <span class="skill-item">Python</span>
+            <span class="skill-item">Rust</span>
+            <span class="skill-item">C/C++</span>
+            <span class="skill-item">C#</span>
+            <span class="skill-item">R</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3>ML / AI</h3>
+          <div class="skill-list">
+            <span class="skill-item">PyTorch</span>
+            <span class="skill-item">YOLO</span>
+            <span class="skill-item">OpenCV</span>
+            <span class="skill-item">timm</span>
+            <span class="skill-item">DINOv2</span>
+            <span class="skill-item">PatchCore</span>
+            <span class="skill-item">I-JEPA</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3>Web / Backend</h3>
+          <div class="skill-list">
+            <span class="skill-item">Flask</span>
+            <span class="skill-item">REST APIs</span>
+            <span class="skill-item">ZeroMQ</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3>Hardware / Edge</h3>
+          <div class="skill-list">
+            <span class="skill-item">NVIDIA Jetson</span>
+            <span class="skill-item">Raspberry Pi</span>
+            <span class="skill-item">Luxonis</span>
+            <span class="skill-item">Hailo NPUs</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3>Infrastructure</h3>
+          <div class="skill-list">
+            <span class="skill-item">Tailscale</span>
+            <span class="skill-item">CUDA</span>
+            <span class="skill-item">ROCm</span>
+            <span class="skill-item">MPS</span>
+            <span class="skill-item">Git</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3>Tools</h3>
+          <div class="skill-list">
+            <span class="skill-item">uv</span>
+            <span class="skill-item">FulcrumPro API</span>
+            <span class="skill-item">WhatsApp Cloud API</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section class="section" id="contact">
+    <div class="fade-in">
+      <div class="section-label">Contact</div>
+      <h2 class="section-title">Get in Touch</h2>
+      <p style="color:var(--text-secondary);margin-bottom:24px;max-width:520px;">
+        Interested in collaboration, consulting, or just want to chat about anomaly detection and edge AI?
+      </p>
+      <div class="contact-links">
+        <a href="mailto:chadweatherly2@gmail.com" class="contact-item">
+          <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,4 12,13 2,4"/></svg>
+          chadweatherly2@gmail.com
+        </a>
+        <a href="https://github.com/ChadWeatherly" class="contact-item" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+          GitHub
+        </a>
+        <a href="https://linkedin.com/in/chad-weatherly-a94605176/" class="contact-item" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    &copy; 2026 Chad Weatherly. Built with care.
+  </footer>
+
+  <!-- ===== JS ===== -->
+  <script>
+    // Theme toggle
+    const toggle = document.getElementById('themeToggle');
+    const icon = document.getElementById('themeIcon');
+    const html = document.documentElement;
+
+    function setTheme(theme) {
+      html.setAttribute('data-theme', theme);
+      icon.textContent = theme === 'dark' ? '\u2600' : '\u263E';
+      localStorage.setItem('theme', theme);
+    }
+
+    toggle.addEventListener('click', () => {
+      setTheme(html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    });
+
+    // Load saved theme
+    const saved = localStorage.getItem('theme');
+    if (saved) setTheme(saved);
+    else if (window.matchMedia('(prefers-color-scheme: dark)').matches) setTheme('dark');
+
+    // Hamburger menu
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+
+    // Close mobile menu on link click
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => navLinks.classList.remove('open'));
+    });
+
+    // Scroll fade-in
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Active nav link on scroll
+    const sections = document.querySelectorAll('section[id]');
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY + 100;
+      sections.forEach(section => {
+        const top = section.offsetTop;
+        const height = section.offsetHeight;
+        const id = section.getAttribute('id');
+        const link = document.querySelector(`.nav-links a[href="#${id}"]`);
+        if (link) {
+          if (scrollY >= top && scrollY < top + height) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>
