@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chad Weatherly — PhD Candidate in CS/AI</title>
-  <meta name="description" content="Chad Weatherly — PhD candidate specializing in anomaly detection and edge AI. Research, projects, and consulting portfolio.">
+  <title>Chad Weatherly — PhD Candidate & Automation Engineer</title>
+  <meta name="description" content="Chad Weatherly — PhD candidate in CS/AI and independent automation engineer. Research in continual learning, anomaly detection, and edge AI; consulting in industrial computer vision and manufacturing automation.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
@@ -185,7 +185,39 @@
       padding-top: 64px;
     }
 
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 48px;
+      align-items: center;
+      width: 100%;
+    }
+
     .hero-content { max-width: 720px; }
+
+    .hero-photo {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      border: 3px solid var(--accent-light);
+      background: var(--bg-card);
+    }
+
+    .hero-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
 
     .hero-tag {
       display: inline-block;
@@ -195,7 +227,22 @@
       font-weight: 600;
       padding: 6px 14px;
       border-radius: 20px;
-      margin-bottom: 20px;
+    }
+
+    .hero-bullets {
+      margin-top: 14px;
+      padding-left: 20px;
+      color: var(--text-secondary);
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    .hero-bullets li {
+      margin-bottom: 8px;
+    }
+
+    .hero-bullets li::marker {
+      color: var(--accent);
     }
 
     .hero h1 {
@@ -505,6 +552,17 @@
 
       .hero { min-height: auto; padding-top: 100px; padding-bottom: 60px; }
 
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .hero-photo {
+        max-width: 220px;
+        margin: 0 auto;
+        order: -1;
+      }
+
       .hero h1 { font-size: 2rem; }
 
       .card-grid-2, .card-grid-3 {
@@ -541,7 +599,7 @@
   <!-- ===== NAVBAR ===== -->
   <nav class="navbar">
     <div class="navbar-inner">
-      <a href="#hero" class="nav-logo">chad<span>.</span></a>
+      <a href="#hero" class="nav-logo">chad weatherly<span>.</span></a>
       <ul class="nav-links" id="navLinks">
         <li><a href="#about">About</a></li>
         <li><a href="#research">Research</a></li>
@@ -563,38 +621,63 @@
 
   <!-- ===== HERO / ABOUT ===== -->
   <section class="section hero" id="hero">
-    <div class="hero-content fade-in">
-      <div class="hero-tag">PhD Candidate &middot; CS / AI</div>
-      <h1>Chad <span class="accent">Weatherly</span></h1>
-      <p class="hero-subtitle">
-        Specializing in anomaly detection and edge AI. Focused on making industrial
-        anomaly detection work in realistic, resource-constrained, continually-changing environments.
-      </p>
-      <p class="hero-subtitle" style="font-size:0.95rem;">
-        PhD student at the University of Houston in the
-        <strong>Pattern Analysis Lab</strong> under Dr. Ioannis Kakadiaris.
-        Background in mathematics and data science, with primary languages Python and Rust.
-      </p>
-      <div class="hero-meta" id="about">
-        <div class="hero-meta-item">
-          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-          University of Houston
+    <div class="hero-grid fade-in">
+      <div class="hero-content">
+        <div class="hero-tags">
+          <span class="hero-tag">PhD Candidate &middot; CS / AI</span>
+          <span class="hero-tag">Automation &amp; Software Engineer</span>
         </div>
-        <div class="hero-meta-item">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-          Pattern Analysis Lab
+        <h1>Chad <span class="accent">Weatherly</span></h1>
+        <p class="hero-subtitle">
+          Computer Science PhD candidate at the University of Houston, working at the intersection
+          of deep learning research and real-world industrial automation. Background in mathematics
+          and data science; primary languages Python and Rust.
+        </p>
+        <ul class="hero-bullets">
+          <li>
+            Research in the
+            <a href="https://slin70.github.io/terms/" target="_blank" rel="noopener"><strong>Continual Edge AI Lab</strong></a>
+            under Dr. Sen Lin — spanning continual learning, anomaly detection,
+            self-supervised learning, vision transformers, and foundation models.
+          </li>
+          <li>
+            Focused on deploying modern neural architectures on resource-constrained edge
+            hardware (NVIDIA Jetson, Raspberry Pi) for realistic manufacturing environments.
+          </li>
+          <li>
+            Independent automation consultant designing end-to-end computer vision, RFID
+            tracking, and quality control systems for industrial clients — from model training
+            through embedded deployment.
+          </li>
+          <li>
+            Previously contributed to clinical AI research on distinguishing pediatric
+            inflammatory syndromes from typhus using multimodal imaging and EHR data.
+          </li>
+        </ul>
+        <div class="hero-meta" id="about">
+          <div class="hero-meta-item">
+            <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            University of Houston
+          </div>
+          <div class="hero-meta-item">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            Continual Edge AI Lab
+          </div>
+          <div class="hero-meta-item">
+            <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            Python &amp; Rust
+          </div>
         </div>
-        <div class="hero-meta-item">
-          <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-          Python &amp; Rust
+        <div class="hero-links">
+          <a href="#research" class="btn btn-primary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            View Research
+          </a>
+          <a href="#contact" class="btn btn-outline">Get in Touch</a>
         </div>
       </div>
-      <div class="hero-links">
-        <a href="#research" class="btn btn-primary">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-          View Research
-        </a>
-        <a href="#contact" class="btn btn-outline">Get in Touch</a>
+      <div class="hero-photo">
+        <img src="chad.jpeg" alt="Chad Weatherly — portrait">
       </div>
     </div>
   </section>
@@ -608,35 +691,35 @@
 
         <div class="card">
           <div class="card-tag">Anomaly Detection</div>
-          <h3>LeJEPA-AD</h3>
+          <h3>Latent-Space Prediction for Anomaly Detection</h3>
           <p>
-            Architecture-agnostic anomaly detection using bidirectional latent-space predictors.
-            A forward predictor maps 8 context patches to 1 center patch for structural anomalies,
-            while a backward predictor maps 1 center to 8 context patches for logical and positional anomalies.
-            Uses SIGReg regularization for in-domain pretraining.
+            Exploring architecture-agnostic approaches to industrial anomaly detection
+            using self-supervised latent-space prediction. Current work investigates whether
+            a single mechanism can capture both structural and logical/positional defects,
+            with an eye toward practical deployment on edge hardware.
           </p>
-          <p style="margin-top:10px;">
-            Currently testing across 14 model architectures under 20M parameters, including
-            FastViT, RepViT, TinyViT, ViT, and ConvNeXt V2.
-          </p>
-          <a href="https://github.com/ChadWeatherly/LeJEPA-AD" class="card-link" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            GitHub
-          </a>
         </div>
 
         <div class="card">
-          <div class="card-tag">Benchmarking</div>
-          <h3>Continual Anomaly Detection Benchmarking</h3>
+          <div class="card-tag">Continual Learning</div>
+          <h3>Continual Anomaly Detection Under Industrial Drift</h3>
           <p>
-            Exposed reproducibility problems in the continual anomaly detection (CLAD) field.
-            Demonstrated performance collapses under realistic distribution drift, with AUROC
-            dropping from 92.4% to 52.6%. Developed DINOCore, achieving 0.969 AUROC on MVTec-AD.
+            Investigating how anomaly detection systems hold up in realistic manufacturing
+            settings where data distributions shift over time. Work in this area centers on
+            building honest benchmarks and developing foundation-model-based detectors that
+            adapt continuously on resource-constrained hardware.
           </p>
-          <a href="https://github.com/ChadWeatherly/Continual_Anomaly_Detection" class="card-link" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            GitHub
-          </a>
+        </div>
+
+        <div class="card">
+          <div class="card-tag">Edge AI</div>
+          <h3>Foundation Models on the Edge</h3>
+          <p>
+            Exploring how modern vision foundation models can be adapted and compressed to
+            run efficiently on embedded platforms like NVIDIA Jetson and Raspberry Pi,
+            while preserving the representational quality needed for downstream industrial
+            tasks.
+          </p>
         </div>
 
       </div>
@@ -693,11 +776,15 @@
 
         <div class="card">
           <div class="card-tag">Manufacturing QC</div>
-          <h3>Wellmatics</h3>
+          <h3>Wellmatics Engineering</h3>
           <p>
-            Manufacturing QC suite featuring an 8-camera QR detection system using Luxonis Oak-1 Lite cameras,
-            a Python backend with Rust GUI, and ZeroMQ communication. YOLOv8-based X-ray deep learning system
-            for detonator QC with a 3-model cascade pipeline.
+            Deployed object detection models for automated X-ray inspection across multiple
+            product types, and modified PLC programs for X-ray machine automation.
+            Reduced product failures by 95% and manufacturing time by 10%.
+          </p>
+          <p style="margin-top:8px;font-size:0.85rem;color:var(--text-muted);">
+            Paired an 8-camera QR detection system with a YOLO-based X-ray QC pipeline,
+            backed by a Python/Rust stack and ZeroMQ communication.
           </p>
           <div class="card-footer">
             <span class="tech-tag">Python</span>
@@ -744,6 +831,7 @@
             <span class="skill-item">C/C++</span>
             <span class="skill-item">C#</span>
             <span class="skill-item">R</span>
+            <span class="skill-item">SQL</span>
           </div>
         </div>
 

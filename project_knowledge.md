@@ -12,12 +12,17 @@ Personal academic + portfolio website for Chad Weatherly, deployed to GitHub Pag
 Single-file architecture — everything lives in `index.html` (HTML + embedded CSS + JS). No build tools, no dependencies.
 
 ### Sections
-1. **Hero / About** — Name, one-liner, bio, lab affiliation (Pattern Analysis Lab, UH, under Kakadiaris)
-2. **Research** — Two cards: LeJEPA-AD and Continual AD Benchmarking, with GitHub links
-3. **Publications** — Single paper (MET Project, Open Forum Infectious Diseases, 2022)
-4. **Projects / Portfolio** — Three consulting cards: X9 Inc, Wellmatics, OAKCameraQC
-5. **Skills** — Six groups: Languages, ML/AI, Web/Backend, Hardware/Edge, Infrastructure, Tools
+1. **Hero / About** — Dual tags (PhD Candidate · CS/AI  +  Automation & Software Engineer), name, bio in bulleted list, formal photo (chad.jpeg), lab affiliation (**Continual Edge AI Lab** under Dr. Sen Lin, linked to https://slin70.github.io/terms/)
+2. **Research / Active Projects** — Three general cards describing research themes (latent-space prediction for AD, continual AD under industrial drift, foundation models on the edge). Deliberately free of specific model names, architectures, or results.
+3. **Publications** — MET Project paper (Open Forum Infectious Diseases, 2022). ECCV 2026 submission is intentionally NOT listed while under review.
+4. **Projects / Portfolio** — Three consulting cards: X9 Inc, Wellmatics (with impact metrics), OAKCameraQC
+5. **Skills** — Six groups: Languages (Python, Rust, C/C++, C#, R, SQL), ML/AI, Web/Backend, Hardware/Edge, Infrastructure, Tools
 6. **Contact** — Email, GitHub, LinkedIn links
+
+### Corrected Lab Affiliation
+- Previously (incorrectly) said: Pattern Analysis Lab under Dr. Ioannis Kakadiaris
+- Correct: **Continual Edge AI Lab (CEAL)** under Dr. Sen Lin (https://slin70.github.io/terms/)
+- Chad was previously in the Computational Biomedicine Lab (under Kakadiaris) from June 2021 – Dec 2022, which is where the MET Project paper came from. Main PhD advisor since Jan 2024 is Dr. Sen Lin.
 
 ### Design Decisions
 - **Layout:** Top navbar (dark), light body, teal accent (`#0d9488`)
@@ -44,8 +49,12 @@ Single-file architecture — everything lives in `index.html` (HTML + embedded C
 - [ ] Site verified live at https://chadweatherly.github.io
 
 ## To-Do (Future)
+- Buy a custom domain and point it at GitHub Pages (user asked about this 2026-04-24)
 - Add a blog/writing section if Chad starts publishing posts
 - Add a CV/resume download link (PDF)
 - Consider adding a favicon and social meta (og:image, twitter:card)
 - Set up weekly scheduled task for auto-updates
 - Add Google Analytics or Plausible for visitor tracking (optional)
+
+## Changelog
+- **2026-04-24** — Redesigned hero: added formal photo (`chad.jpeg`), dual role tags, bulleted bio. Corrected lab affiliation to CEAL / Dr. Sen Lin with link to https://slin70.github.io/terms/. Generalized Active Projects to three thematic cards. Added SQL to Languages. Added impact metrics to Wellmatics card. Nav logo updated to "chad weatherly." Note: ECCV 2026 submission intentionally NOT mentioned anywhere on the site while under review.
