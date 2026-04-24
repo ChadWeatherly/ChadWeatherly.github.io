@@ -187,7 +187,7 @@
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1fr 280px;
+      grid-template-columns: 1fr 340px;
       gap: 48px;
       align-items: center;
       width: 100%;
@@ -197,7 +197,7 @@
 
     .hero-photo {
       width: 100%;
-      aspect-ratio: 1 / 1;
+      aspect-ratio: 4 / 5;
       border-radius: 16px;
       overflow: hidden;
       box-shadow: var(--shadow-lg);
@@ -558,7 +558,7 @@
       }
 
       .hero-photo {
-        max-width: 220px;
+        max-width: 260px;
         margin: 0 auto;
         order: -1;
       }
@@ -629,39 +629,31 @@
         </div>
         <h1>Chad <span class="accent">Weatherly</span></h1>
         <p class="hero-subtitle">
-          Computer Science PhD candidate at the University of Houston, working at the intersection
-          of deep learning research and real-world industrial automation. Background in mathematics
-          and data science; primary languages Python and Rust.
+          I'm a Computer Science PhD candidate at the University of Houston, working at the
+          intersection of deep learning research and real-world industrial automation. My
+          background is in mathematics and data science, and I work primarily in Python and Rust.
         </p>
         <ul class="hero-bullets">
           <li>
-            Research in the
+            I research in the
             <a href="https://slin70.github.io/terms/" target="_blank" rel="noopener"><strong>Continual Edge AI Lab</strong></a>
-            under Dr. Sen Lin — spanning continual learning, anomaly detection,
+            under Dr. Sen Lin, with interests across continual learning, anomaly detection,
             self-supervised learning, vision transformers, and foundation models.
           </li>
           <li>
-            Focused on deploying modern neural architectures on resource-constrained edge
-            hardware (NVIDIA Jetson, Raspberry Pi) for realistic manufacturing environments.
+            I'm especially interested in how modern neural architectures can run on
+            resource-constrained edge hardware inside realistic manufacturing environments.
           </li>
           <li>
-            Independent automation consultant designing end-to-end computer vision, RFID
-            tracking, and quality control systems for industrial clients — from model training
-            through embedded deployment.
-          </li>
-          <li>
-            Previously contributed to clinical AI research on distinguishing pediatric
-            inflammatory syndromes from typhus using multimodal imaging and EHR data.
+            Outside the lab, I work as an independent automation consultant, building
+            computer vision and quality control systems for industrial clients — from
+            training models to deploying them on the factory floor.
           </li>
         </ul>
         <div class="hero-meta" id="about">
           <div class="hero-meta-item">
             <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
             University of Houston
-          </div>
-          <div class="hero-meta-item">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-            Continual Edge AI Lab
           </div>
           <div class="hero-meta-item">
             <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
@@ -752,63 +744,38 @@
     <div class="fade-in">
       <div class="section-label">Portfolio</div>
       <h2 class="section-title">Consulting &amp; Industry Work</h2>
-      <div class="card-grid card-grid-3">
+      <div class="card-grid card-grid-2">
 
         <div class="card">
-          <div class="card-tag">Industrial Inspection</div>
+          <div class="card-tag">Industrial X-Ray Inspection</div>
           <h3>X9 Inc</h3>
           <p>
-            End-to-end industrial X-ray inspection system with development fees, perpetual licensing,
-            and annual support model. Built a central Flask server with WhatsApp Cloud API integration,
-            RFID operator tracking, and FulcrumPro ERP sync.
-          </p>
-          <p style="margin-top:8px;font-size:0.85rem;color:var(--text-muted);">
-            Hardware: Intel Xeon server, Raspberry Pi stations, JMX-P6030 X-Ray machine.
+            Sole software engineer. Automating X-ray inspection program,
+            building the pipeline end-to-end — from image acquisition off the X-ray machine,
+            through AI-based quality inspection, to results reporting and remote review.
+            Built custom RFID-reading system that coordinates with local server and ERP for
+            seamless job tracking and employee management.
           </p>
           <div class="card-footer">
             <span class="tech-tag">Python</span>
             <span class="tech-tag">Flask</span>
             <span class="tech-tag">PyTorch</span>
             <span class="tech-tag">OpenCV</span>
-            <span class="tech-tag">C# .NET</span>
           </div>
         </div>
 
         <div class="card">
-          <div class="card-tag">Manufacturing QC</div>
+          <div class="card-tag">Industrial X-Ray Inspection</div>
           <h3>Wellmatics Engineering</h3>
           <p>
-            Deployed object detection models for automated X-ray inspection across multiple
-            product types, and modified PLC programs for X-ray machine automation.
-            Reduced product failures by 95% and manufacturing time by 10%.
-          </p>
-          <p style="margin-top:8px;font-size:0.85rem;color:var(--text-muted);">
-            Paired an 8-camera QR detection system with a YOLO-based X-ray QC pipeline,
-            backed by a Python/Rust stack and ZeroMQ communication.
-          </p>
-          <div class="card-footer">
-            <span class="tech-tag">Python</span>
-            <span class="tech-tag">Rust</span>
-            <span class="tech-tag">PyTorch</span>
-            <span class="tech-tag">YOLO</span>
-            <span class="tech-tag">DepthAI</span>
-            <span class="tech-tag">ZeroMQ</span>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-tag">Edge AI Product</div>
-          <h3>OAKCameraQC</h3>
-          <p>
-            Deployable edge AI quality-control camera product with Jetson Orin Nano and Raspberry Pi 5 variants.
-            SSD neural networks for production deployment. Currently evaluating PatchCore vs. EfficientAD
-            approaches for anomaly detection.
+            Built a deep-learning pipeline for automated X-ray inspection of manufactured
+            products, covering multiple product lines. The system cut product failures by
+            roughly 95% and reduced manufacturing time by about 10%.
           </p>
           <div class="card-footer">
             <span class="tech-tag">Python</span>
             <span class="tech-tag">PyTorch</span>
-            <span class="tech-tag">Jetson</span>
-            <span class="tech-tag">Raspberry Pi</span>
+            <span class="tech-tag">OpenCV</span>
           </div>
         </div>
 
@@ -836,54 +803,36 @@
         </div>
 
         <div class="skill-group">
-          <h3>ML / AI</h3>
+          <h3>Frameworks &amp; Libraries</h3>
           <div class="skill-list">
             <span class="skill-item">PyTorch</span>
-            <span class="skill-item">YOLO</span>
             <span class="skill-item">OpenCV</span>
-            <span class="skill-item">timm</span>
-            <span class="skill-item">DINOv2</span>
-            <span class="skill-item">PatchCore</span>
-            <span class="skill-item">I-JEPA</span>
-          </div>
-        </div>
-
-        <div class="skill-group">
-          <h3>Web / Backend</h3>
-          <div class="skill-list">
+            <span class="skill-item">scikit-learn</span>
+            <span class="skill-item">pandas</span>
+            <span class="skill-item">NumPy</span>
             <span class="skill-item">Flask</span>
-            <span class="skill-item">REST APIs</span>
-            <span class="skill-item">ZeroMQ</span>
           </div>
         </div>
 
         <div class="skill-group">
-          <h3>Hardware / Edge</h3>
+          <h3>Research Interests</h3>
+          <div class="skill-list">
+            <span class="skill-item">Anomaly Detection</span>
+            <span class="skill-item">Continual Learning</span>
+            <span class="skill-item">Self-Supervised Learning</span>
+            <span class="skill-item">Vision Transformers</span>
+            <span class="skill-item">Foundation Models</span>
+            <span class="skill-item">Edge AI</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3>Hardware &amp; Deployment</h3>
           <div class="skill-list">
             <span class="skill-item">NVIDIA Jetson</span>
             <span class="skill-item">Raspberry Pi</span>
-            <span class="skill-item">Luxonis</span>
-            <span class="skill-item">Hailo NPUs</span>
-          </div>
-        </div>
-
-        <div class="skill-group">
-          <h3>Infrastructure</h3>
-          <div class="skill-list">
-            <span class="skill-item">Tailscale</span>
+            <span class="skill-item">Linux</span>
             <span class="skill-item">CUDA</span>
-            <span class="skill-item">ROCm</span>
-            <span class="skill-item">MPS</span>
-            <span class="skill-item">Git</span>
-          </div>
-        </div>
-
-        <div class="skill-group">
-          <h3>Tools</h3>
-          <div class="skill-list">
-            <span class="skill-item">uv</span>
-            <span class="skill-item">FulcrumPro API</span>
-            <span class="skill-item">WhatsApp Cloud API</span>
           </div>
         </div>
 

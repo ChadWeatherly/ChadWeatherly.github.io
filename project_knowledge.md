@@ -15,8 +15,8 @@ Single-file architecture — everything lives in `index.html` (HTML + embedded C
 1. **Hero / About** — Dual tags (PhD Candidate · CS/AI  +  Automation & Software Engineer), name, bio in bulleted list, formal photo (chad.jpeg), lab affiliation (**Continual Edge AI Lab** under Dr. Sen Lin, linked to https://slin70.github.io/terms/)
 2. **Research / Active Projects** — Three general cards describing research themes (latent-space prediction for AD, continual AD under industrial drift, foundation models on the edge). Deliberately free of specific model names, architectures, or results.
 3. **Publications** — MET Project paper (Open Forum Infectious Diseases, 2022). ECCV 2026 submission is intentionally NOT listed while under review.
-4. **Projects / Portfolio** — Three consulting cards: X9 Inc, Wellmatics (with impact metrics), OAKCameraQC
-5. **Skills** — Six groups: Languages (Python, Rust, C/C++, C#, R, SQL), ML/AI, Web/Backend, Hardware/Edge, Infrastructure, Tools
+4. **Projects / Portfolio** — Two consulting cards (X9 Inc, Wellmatics). Both focused purely on X-ray inspection work. No hardware specifics, no fee/licensing language.
+5. **Skills** — Four groups: Languages, Frameworks & Libraries, Research Interests, Hardware & Deployment. Model architectures intentionally NOT listed as skills (YOLO, DINO, PatchCore, I-JEPA removed). Flask kept; REST APIs and ZeroMQ removed per user note that only Flask of those was well-known.
 6. **Contact** — Email, GitHub, LinkedIn links
 
 ### Corrected Lab Affiliation
@@ -57,4 +57,5 @@ Single-file architecture — everything lives in `index.html` (HTML + embedded C
 - Add Google Analytics or Plausible for visitor tracking (optional)
 
 ## Changelog
-- **2026-04-24** — Redesigned hero: added formal photo (`chad.jpeg`), dual role tags, bulleted bio. Corrected lab affiliation to CEAL / Dr. Sen Lin with link to https://slin70.github.io/terms/. Generalized Active Projects to three thematic cards. Added SQL to Languages. Added impact metrics to Wellmatics card. Nav logo updated to "chad weatherly." Note: ECCV 2026 submission intentionally NOT mentioned anywhere on the site while under review.
+- **2026-04-24** — Redesigned hero: added formal photo (`chad.jpeg`), dual role tags, bulleted bio. Corrected lab affiliation to CEAL / Dr. Sen Lin with link to https://slin70.github.io/terms/. Generalized Active Projects to three thematic cards. Added SQL to Languages. Nav logo updated to "chad weatherly." Note: ECCV 2026 submission intentionally NOT mentioned anywhere on the site while under review.
+- **2026-04-24 (round 2)** — Enlarged hero photo (340px wide, portrait 4:5 aspect). Rewrote hero bio in first person to feel less CV-like. Dropped the "Continual Edge AI Lab" meta-row chip (lab is already mentioned in bio). Consulting section pared down to two cards (X9 + Wellmatics), focused only on X-ray inspection work; removed hardware specifics, fee/licensing mentions, and the OAKCameraQC card. Skills: trimmed model architectures (YOLO/DINO/PatchCore/I-JEPA removed), consolidated web tools to just Flask, added a "Research Interests" group, collapsed Hardware+Infrastructure+Tools into a single "Hardware & Deployment" group.
