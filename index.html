@@ -437,6 +437,26 @@
       color: var(--accent);
     }
 
+    .pub-subsection-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 14px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+      letter-spacing: -0.01em;
+    }
+
+    .pub-subsection-title + .pub-list {
+      margin-bottom: 36px;
+    }
+
+    .pub-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
     /* ===== Skills ===== */
     .skills-grid {
       display: grid;
@@ -603,10 +623,10 @@
       <ul class="nav-links" id="navLinks">
         <li><a href="#about">About</a></li>
         <li><a href="#research">Research</a></li>
-        <li><a href="#publications">Publications</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#contact">Contact</a></li>
+        <li><a href="#publications">Publications</a></li>
       </ul>
       <div style="display:flex;align-items:center;gap:4px;">
         <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
@@ -714,27 +734,6 @@
           </p>
         </div>
 
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== PUBLICATIONS ===== -->
-  <section class="section" id="publications">
-    <div class="fade-in">
-      <div class="section-label">Publications</div>
-      <h2 class="section-title">Published Work</h2>
-      <div class="pub-card">
-        <h3>The MET Project: Distinguishing Multisystem Inflammatory Syndrome in Children from Typhus Using Artificial Intelligence</h3>
-        <p class="pub-meta">
-          Chun A, Bautista A, <strong>Weatherly C</strong>, Osuna I, Nasto K, Munoz FM, Schutze G,
-          Devaraj S, Muscal E, Sexson Tejtel K, Vogel T, Kakadiaris I.
-        </p>
-        <p class="pub-meta">
-          <em>Open Forum Infectious Diseases</em>, 2022;9(Suppl 2):ofac492.916.
-        </p>
-        <a href="https://doi.org/10.1093/ofid/ofac492.916" class="pub-doi" target="_blank" rel="noopener">
-          DOI: 10.1093/ofid/ofac492.916
-        </a>
       </div>
     </div>
   </section>
@@ -863,6 +862,47 @@
           <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
           LinkedIn
         </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PUBLICATIONS ===== -->
+  <section class="section" id="publications">
+    <div class="fade-in">
+      <div class="section-label">Publications</div>
+      <h2 class="section-title">Papers</h2>
+
+      <h3 class="pub-subsection-title">Pre-prints</h3>
+      <div class="pub-list">
+        <div class="pub-card">
+          <h3>Rethinking Continual Anomaly Detection on the Edge: Benchmarking Under Realistic Industrial Conditions</h3>
+          <p class="pub-meta">
+            <strong>Weatherly C</strong>, Lin S.
+          </p>
+          <p class="pub-meta">
+            <em>arXiv preprint</em>, 2026. arXiv:2605.24251.
+          </p>
+          <a href="https://arxiv.org/abs/2605.24251" class="pub-doi" target="_blank" rel="noopener">
+            arXiv: 2605.24251
+          </a>
+        </div>
+      </div>
+
+      <h3 class="pub-subsection-title">Published Work</h3>
+      <div class="pub-list">
+        <div class="pub-card">
+          <h3>The MET Project: Distinguishing Multisystem Inflammatory Syndrome in Children from Typhus Using Artificial Intelligence</h3>
+          <p class="pub-meta">
+            Chun A, Bautista A, <strong>Weatherly C</strong>, Osuna I, Nasto K, Munoz FM, Schutze G,
+            Devaraj S, Muscal E, Sexson Tejtel K, Vogel T, Kakadiaris I.
+          </p>
+          <p class="pub-meta">
+            <em>Open Forum Infectious Diseases</em>, 2022;9(Suppl 2):ofac492.916.
+          </p>
+          <a href="https://doi.org/10.1093/ofid/ofac492.916" class="pub-doi" target="_blank" rel="noopener">
+            DOI: 10.1093/ofid/ofac492.916
+          </a>
+        </div>
       </div>
     </div>
   </section>
